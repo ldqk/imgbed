@@ -1,3 +1,168 @@
+<!doctype html>
+<html>
+<head>
+<title>Page Sandbox</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0">
+<base target="_blank">
+<style>
+body {
+padding: 0 0.5em;
+}
+.box {
+margin-top: 1em;
+}
+#txtURL {
+width: 100%;
+height: 2em;
+text-indent: 0.5em;
+padding: 0.25em 0;
+}
+#btnGo {
+width: 100%;
+font-size: 1.5em;
+}
+#list a {
+margin: 1em;
+}
+</style>
+</head>
+<body>
+<div class="box">
+<input id="txtURL" type="text" value="www.google.com" autofocus>
+</div>
+<div class="box">
+<button id="btnGo">Go</button>
+</div>
+<div class="box">
+<span>切换线路:</span>
+<select id="selNode"></select>
+</div>
+<div class="box" id="list">
+</div>
+<script>
+const PAGE_CONF_SET = 110
+const PAGE_CONF_GET = 111
 
-<!-- saved from url=(0057)https://etherdream.github.io/jsproxy/assets/index_v3.html -->
-<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"></head><body><div class="line-gutter-backdrop"></div><table><tbody><tr><td class="line-number" value="1"></td><td class="line-content"><span class="html-doctype">&lt;!doctype html&gt;</span></td></tr><tr><td class="line-number" value="2"></td><td class="line-content"><span class="html-tag">&lt;html&gt;</span></td></tr><tr><td class="line-number" value="3"></td><td class="line-content"><span class="html-tag">&lt;head&gt;</span></td></tr><tr><td class="line-number" value="4"></td><td class="line-content">  <span class="html-tag">&lt;title&gt;</span>Page Sandbox<span class="html-tag">&lt;/title&gt;</span></td></tr><tr><td class="line-number" value="5"></td><td class="line-content">  <span class="html-tag">&lt;meta <span class="html-attribute-name">charset</span>="<span class="html-attribute-value">utf-8</span>"&gt;</span></td></tr><tr><td class="line-number" value="6"></td><td class="line-content">  <span class="html-tag">&lt;meta <span class="html-attribute-name">name</span>="<span class="html-attribute-value">viewport</span>" <span class="html-attribute-name">content</span>="<span class="html-attribute-value">width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0</span>"&gt;</span></td></tr><tr><td class="line-number" value="7"></td><td class="line-content">  <span class="html-tag">&lt;base <span class="html-attribute-name">target</span>="<span class="html-attribute-value">_blank</span>"&gt;</span></td></tr><tr><td class="line-number" value="8"></td><td class="line-content">  <span class="html-tag">&lt;style&gt;</span></td></tr><tr><td class="line-number" value="9"></td><td class="line-content">    body {</td></tr><tr><td class="line-number" value="10"></td><td class="line-content">      padding: 0 0.5em;</td></tr><tr><td class="line-number" value="11"></td><td class="line-content">    }</td></tr><tr><td class="line-number" value="12"></td><td class="line-content">    .box {</td></tr><tr><td class="line-number" value="13"></td><td class="line-content">      margin-top: 1em;</td></tr><tr><td class="line-number" value="14"></td><td class="line-content">    }</td></tr><tr><td class="line-number" value="15"></td><td class="line-content">    #txtURL {</td></tr><tr><td class="line-number" value="16"></td><td class="line-content">      width: 100%;</td></tr><tr><td class="line-number" value="17"></td><td class="line-content">      height: 2em;</td></tr><tr><td class="line-number" value="18"></td><td class="line-content">      text-indent: 0.5em;</td></tr><tr><td class="line-number" value="19"></td><td class="line-content">      padding: 0.25em 0;</td></tr><tr><td class="line-number" value="20"></td><td class="line-content">    }</td></tr><tr><td class="line-number" value="21"></td><td class="line-content">    #btnGo {</td></tr><tr><td class="line-number" value="22"></td><td class="line-content">      width: 100%;</td></tr><tr><td class="line-number" value="23"></td><td class="line-content">      font-size: 1.5em;</td></tr><tr><td class="line-number" value="24"></td><td class="line-content">    }</td></tr><tr><td class="line-number" value="25"></td><td class="line-content">    #list a {</td></tr><tr><td class="line-number" value="26"></td><td class="line-content">      margin: 1em;</td></tr><tr><td class="line-number" value="27"></td><td class="line-content">    }</td></tr><tr><td class="line-number" value="28"></td><td class="line-content">  <span class="html-tag">&lt;/style&gt;</span></td></tr><tr><td class="line-number" value="29"></td><td class="line-content"><span class="html-tag">&lt;/head&gt;</span></td></tr><tr><td class="line-number" value="30"></td><td class="line-content"><span class="html-tag">&lt;body&gt;</span></td></tr><tr><td class="line-number" value="31"></td><td class="line-content">  <span class="html-tag">&lt;div <span class="html-attribute-name">class</span>="<span class="html-attribute-value">box</span>"&gt;</span></td></tr><tr><td class="line-number" value="32"></td><td class="line-content">    <span class="html-tag">&lt;input <span class="html-attribute-name">id</span>="<span class="html-attribute-value">txtURL</span>" <span class="html-attribute-name">type</span>="<span class="html-attribute-value">text</span>" <span class="html-attribute-name">value</span>="<span class="html-attribute-value">www.google.com</span>" <span class="html-attribute-name">autofocus</span>&gt;</span></td></tr><tr><td class="line-number" value="33"></td><td class="line-content">  <span class="html-tag">&lt;/div&gt;</span></td></tr><tr><td class="line-number" value="34"></td><td class="line-content">  <span class="html-tag">&lt;div <span class="html-attribute-name">class</span>="<span class="html-attribute-value">box</span>"&gt;</span></td></tr><tr><td class="line-number" value="35"></td><td class="line-content">    <span class="html-tag">&lt;button <span class="html-attribute-name">id</span>="<span class="html-attribute-value">btnGo</span>"&gt;</span>Go<span class="html-tag">&lt;/button&gt;</span></td></tr><tr><td class="line-number" value="36"></td><td class="line-content">  <span class="html-tag">&lt;/div&gt;</span></td></tr><tr><td class="line-number" value="37"></td><td class="line-content">  <span class="html-tag">&lt;div <span class="html-attribute-name">class</span>="<span class="html-attribute-value">box</span>"&gt;</span></td></tr><tr><td class="line-number" value="38"></td><td class="line-content">    <span class="html-tag">&lt;span&gt;</span>切换线路:<span class="html-tag">&lt;/span&gt;</span></td></tr><tr><td class="line-number" value="39"></td><td class="line-content">    <span class="html-tag">&lt;select <span class="html-attribute-name">id</span>="<span class="html-attribute-value">selNode</span>"&gt;</span><span class="html-tag">&lt;/select&gt;</span></td></tr><tr><td class="line-number" value="40"></td><td class="line-content">  <span class="html-tag">&lt;/div&gt;</span></td></tr><tr><td class="line-number" value="41"></td><td class="line-content">  <span class="html-tag">&lt;div <span class="html-attribute-name">class</span>="<span class="html-attribute-value">box</span>" <span class="html-attribute-name">id</span>="<span class="html-attribute-value">list</span>"&gt;</span></td></tr><tr><td class="line-number" value="42"></td><td class="line-content">  <span class="html-tag">&lt;/div&gt;</span></td></tr><tr><td class="line-number" value="43"></td><td class="line-content">  <span class="html-tag">&lt;script&gt;</span></td></tr><tr><td class="line-number" value="44"></td><td class="line-content">    const PAGE_CONF_SET = 110</td></tr><tr><td class="line-number" value="45"></td><td class="line-content">    const PAGE_CONF_GET = 111</td></tr><tr><td class="line-number" value="46"></td><td class="line-content"><br></td></tr><tr><td class="line-number" value="47"></td><td class="line-content">    const SW_CONF_RETURN = 112</td></tr><tr><td class="line-number" value="48"></td><td class="line-content">    const SW_CONF_CHANGE = 113</td></tr><tr><td class="line-number" value="49"></td><td class="line-content"><br></td></tr><tr><td class="line-number" value="50"></td><td class="line-content">    const PAGE_READY_CHECK = 200</td></tr><tr><td class="line-number" value="51"></td><td class="line-content">    const SW_READY = 201</td></tr><tr><td class="line-number" value="52"></td><td class="line-content"><br></td></tr><tr><td class="line-number" value="53"></td><td class="line-content">    const sw = navigator.serviceWorker</td></tr><tr><td class="line-number" value="54"></td><td class="line-content"><br></td></tr><tr><td class="line-number" value="55"></td><td class="line-content"><br></td></tr><tr><td class="line-number" value="56"></td><td class="line-content">    sw.addEventListener('message', onSwMsg)</td></tr><tr><td class="line-number" value="57"></td><td class="line-content">    sendMsgToSw(PAGE_READY_CHECK)</td></tr><tr><td class="line-number" value="58"></td><td class="line-content"><br></td></tr><tr><td class="line-number" value="59"></td><td class="line-content">    btnGo.onclick = function() {</td></tr><tr><td class="line-number" value="60"></td><td class="line-content">      const text = txtURL.value.trim()</td></tr><tr><td class="line-number" value="61"></td><td class="line-content">      if (text) {</td></tr><tr><td class="line-number" value="62"></td><td class="line-content">        const url = './-----' + text</td></tr><tr><td class="line-number" value="63"></td><td class="line-content">        open(url, '_blank', 'noopener,noreferrer')</td></tr><tr><td class="line-number" value="64"></td><td class="line-content">      }</td></tr><tr><td class="line-number" value="65"></td><td class="line-content">    }</td></tr><tr><td class="line-number" value="66"></td><td class="line-content">    txtURL.onkeypress = function(e) {</td></tr><tr><td class="line-number" value="67"></td><td class="line-content">      if (e.keyCode === 13) {</td></tr><tr><td class="line-number" value="68"></td><td class="line-content">        btnGo.onclick()</td></tr><tr><td class="line-number" value="69"></td><td class="line-content">      }</td></tr><tr><td class="line-number" value="70"></td><td class="line-content">    }</td></tr><tr><td class="line-number" value="71"></td><td class="line-content">    txtURL.setSelectionRange(0, txtURL.value.length)</td></tr><tr><td class="line-number" value="72"></td><td class="line-content"><br></td></tr><tr><td class="line-number" value="73"></td><td class="line-content"><br></td></tr><tr><td class="line-number" value="74"></td><td class="line-content">    function onSwMsg(e) {</td></tr><tr><td class="line-number" value="75"></td><td class="line-content">      const [cmd, msg] = e.data</td></tr><tr><td class="line-number" value="76"></td><td class="line-content"><br></td></tr><tr><td class="line-number" value="77"></td><td class="line-content">      switch (cmd) {</td></tr><tr><td class="line-number" value="78"></td><td class="line-content">      case SW_CONF_RETURN:</td></tr><tr><td class="line-number" value="79"></td><td class="line-content">        conf = msg</td></tr><tr><td class="line-number" value="80"></td><td class="line-content">        showConf()</td></tr><tr><td class="line-number" value="81"></td><td class="line-content">        break</td></tr><tr><td class="line-number" value="82"></td><td class="line-content"><br></td></tr><tr><td class="line-number" value="83"></td><td class="line-content">      case SW_CONF_CHANGE:</td></tr><tr><td class="line-number" value="84"></td><td class="line-content">        conf = msg</td></tr><tr><td class="line-number" value="85"></td><td class="line-content">        updateSelected()</td></tr><tr><td class="line-number" value="86"></td><td class="line-content">        break</td></tr><tr><td class="line-number" value="87"></td><td class="line-content"><br></td></tr><tr><td class="line-number" value="88"></td><td class="line-content">      case SW_READY:</td></tr><tr><td class="line-number" value="89"></td><td class="line-content">        console.log('sw ready')</td></tr><tr><td class="line-number" value="90"></td><td class="line-content">        showIcons()</td></tr><tr><td class="line-number" value="91"></td><td class="line-content">        sendMsgToSw(PAGE_CONF_GET)</td></tr><tr><td class="line-number" value="92"></td><td class="line-content">        break</td></tr><tr><td class="line-number" value="93"></td><td class="line-content">      }</td></tr><tr><td class="line-number" value="94"></td><td class="line-content">    }</td></tr><tr><td class="line-number" value="95"></td><td class="line-content"><br></td></tr><tr><td class="line-number" value="96"></td><td class="line-content">    function onSwFail(err) {</td></tr><tr><td class="line-number" value="97"></td><td class="line-content">      txtURL.value = err</td></tr><tr><td class="line-number" value="98"></td><td class="line-content">    }</td></tr><tr><td class="line-number" value="99"></td><td class="line-content"><br></td></tr><tr><td class="line-number" value="100"></td><td class="line-content">    selNode.onchange = function() {</td></tr><tr><td class="line-number" value="101"></td><td class="line-content">      const item = this.options[this.selectedIndex]</td></tr><tr><td class="line-number" value="102"></td><td class="line-content">      const node = item.value</td></tr><tr><td class="line-number" value="103"></td><td class="line-content">      conf.node_default = node</td></tr><tr><td class="line-number" value="104"></td><td class="line-content">      sendMsgToSw(PAGE_CONF_SET, conf)</td></tr><tr><td class="line-number" value="105"></td><td class="line-content">    }</td></tr><tr><td class="line-number" value="106"></td><td class="line-content"><br></td></tr><tr><td class="line-number" value="107"></td><td class="line-content">    function sendMsgToSw(cmd, val) {</td></tr><tr><td class="line-number" value="108"></td><td class="line-content">      const ctl = sw.controller</td></tr><tr><td class="line-number" value="109"></td><td class="line-content">      if (!ctl) {</td></tr><tr><td class="line-number" value="110"></td><td class="line-content">        console.log('ctl is null')</td></tr><tr><td class="line-number" value="111"></td><td class="line-content">        return</td></tr><tr><td class="line-number" value="112"></td><td class="line-content">      }</td></tr><tr><td class="line-number" value="113"></td><td class="line-content">      ctl.postMessage([cmd, val])</td></tr><tr><td class="line-number" value="114"></td><td class="line-content">    }</td></tr><tr><td class="line-number" value="115"></td><td class="line-content"><br></td></tr><tr><td class="line-number" value="116"></td><td class="line-content">    const SITE_LIST = [</td></tr><tr><td class="line-number" value="117"></td><td class="line-content">      ['google', ''],</td></tr><tr><td class="line-number" value="118"></td><td class="line-content">      ['youtube', ''],</td></tr><tr><td class="line-number" value="119"></td><td class="line-content">      ['twitter', 'twitter.com/google'],</td></tr><tr><td class="line-number" value="120"></td><td class="line-content">      ['flickr', ''],</td></tr><tr><td class="line-number" value="121"></td><td class="line-content">      ['quora', 'www.quora.com/topic/JavaScript-programming-language'],</td></tr><tr><td class="line-number" value="122"></td><td class="line-content">      ['twitch', 'www.twitch.tv/'],</td></tr><tr><td class="line-number" value="123"></td><td class="line-content">      ['reddit', ''],</td></tr><tr><td class="line-number" value="124"></td><td class="line-content">      ['wiki', 'zh.wikipedia.org/'],</td></tr><tr><td class="line-number" value="125"></td><td class="line-content">      ['gist', 'gist.github.com/'],</td></tr><tr><td class="line-number" value="126"></td><td class="line-content">      ['facebook', 'facebook.com/Google/'],</td></tr><tr><td class="line-number" value="127"></td><td class="line-content">      ['blogger', ''],</td></tr><tr><td class="line-number" value="128"></td><td class="line-content">    ]</td></tr><tr><td class="line-number" value="129"></td><td class="line-content"><br></td></tr><tr><td class="line-number" value="130"></td><td class="line-content">    function showIcons() {</td></tr><tr><td class="line-number" value="131"></td><td class="line-content">      list.innerHTML = SITE_LIST.map(v =&gt; {</td></tr><tr><td class="line-number" value="132"></td><td class="line-content">        let [id, url] = v</td></tr><tr><td class="line-number" value="133"></td><td class="line-content">        url = url || `www.${id}.com/`</td></tr><tr><td class="line-number" value="134"></td><td class="line-content">        return `\</td></tr><tr><td class="line-number" value="135"></td><td class="line-content">&lt;a rel="noopener noreferrer" href=./-----https://${url}&gt;\</td></tr><tr><td class="line-number" value="136"></td><td class="line-content">&lt;img width=128 height=128 src=__sys__/assets/ico/${id}.png&gt;&lt;/a&gt;`</td></tr><tr><td class="line-number" value="137"></td><td class="line-content">      }).join('')</td></tr><tr><td class="line-number" value="138"></td><td class="line-content">    }</td></tr><tr><td class="line-number" value="139"></td><td class="line-content"><br></td></tr><tr><td class="line-number" value="140"></td><td class="line-content">    function addNodeItem(id, text) {</td></tr><tr><td class="line-number" value="141"></td><td class="line-content">      const optEl = document.createElement('option')</td></tr><tr><td class="line-number" value="142"></td><td class="line-content">      optEl.id = '--' + id</td></tr><tr><td class="line-number" value="143"></td><td class="line-content">      optEl.text = text</td></tr><tr><td class="line-number" value="144"></td><td class="line-content">      optEl.value = id</td></tr><tr><td class="line-number" value="145"></td><td class="line-content">      selNode.appendChild(optEl)</td></tr><tr><td class="line-number" value="146"></td><td class="line-content">    }</td></tr><tr><td class="line-number" value="147"></td><td class="line-content"><br></td></tr><tr><td class="line-number" value="148"></td><td class="line-content">    function updateSelected() {</td></tr><tr><td class="line-number" value="149"></td><td class="line-content">      const id = conf.node_default</td></tr><tr><td class="line-number" value="150"></td><td class="line-content">      const item = document.getElementById('--' + id)</td></tr><tr><td class="line-number" value="151"></td><td class="line-content">      if (item) {</td></tr><tr><td class="line-number" value="152"></td><td class="line-content">        item.selected = true</td></tr><tr><td class="line-number" value="153"></td><td class="line-content">      } else {</td></tr><tr><td class="line-number" value="154"></td><td class="line-content">        console.warn('unknown node:', id)</td></tr><tr><td class="line-number" value="155"></td><td class="line-content">      }</td></tr><tr><td class="line-number" value="156"></td><td class="line-content">    }</td></tr><tr><td class="line-number" value="157"></td><td class="line-content"><br></td></tr><tr><td class="line-number" value="158"></td><td class="line-content">    function showConf() {</td></tr><tr><td class="line-number" value="159"></td><td class="line-content">      for (const [id, node] of Object.entries(conf.node_map)) {</td></tr><tr><td class="line-number" value="160"></td><td class="line-content">        if (!node.hidden) {</td></tr><tr><td class="line-number" value="161"></td><td class="line-content">          addNodeItem(id, node.label)</td></tr><tr><td class="line-number" value="162"></td><td class="line-content">        }</td></tr><tr><td class="line-number" value="163"></td><td class="line-content">      }</td></tr><tr><td class="line-number" value="164"></td><td class="line-content">      updateSelected()</td></tr><tr><td class="line-number" value="165"></td><td class="line-content">    }</td></tr><tr><td class="line-number" value="166"></td><td class="line-content">  <span class="html-tag">&lt;/script&gt;</span></td></tr><tr><td class="line-number" value="167"></td><td class="line-content"><span class="html-tag">&lt;/body&gt;</span></td></tr><tr><td class="line-number" value="168"></td><td class="line-content"><span class="html-tag">&lt;/html&gt;</span><span class="html-end-of-file"></span></td></tr></tbody></table></body></html>
+const SW_CONF_RETURN = 112
+const SW_CONF_CHANGE = 113
+
+const PAGE_READY_CHECK = 200
+const SW_READY = 201
+
+const sw = navigator.serviceWorker
+
+
+sw.addEventListener('message', onSwMsg)
+sendMsgToSw(PAGE_READY_CHECK)
+
+btnGo.onclick = function() {
+const text = txtURL.value.trim()
+if (text) {
+const url = './-----' + text
+open(url, '_blank', 'noopener,noreferrer')
+}
+}
+txtURL.onkeypress = function(e) {
+if (e.keyCode === 13) {
+btnGo.onclick()
+}
+}
+txtURL.setSelectionRange(0, txtURL.value.length)
+
+
+function onSwMsg(e) {
+const [cmd, msg] = e.data
+
+switch (cmd) {
+case SW_CONF_RETURN:
+conf = msg
+showConf()
+break
+
+case SW_CONF_CHANGE:
+conf = msg
+updateSelected()
+break
+
+case SW_READY:
+console.log('sw ready')
+showIcons()
+sendMsgToSw(PAGE_CONF_GET)
+break
+}
+}
+
+function onSwFail(err) {
+txtURL.value = err
+}
+
+selNode.onchange = function() {
+const item = this.options[this.selectedIndex]
+const node = item.value
+conf.node_default = node
+sendMsgToSw(PAGE_CONF_SET, conf)
+}
+
+function sendMsgToSw(cmd, val) {
+const ctl = sw.controller
+if (!ctl) {
+console.log('ctl is null')
+return
+}
+ctl.postMessage([cmd, val])
+}
+
+const SITE_LIST = [
+['google', ''],
+['youtube', ''],
+['twitter', 'twitter.com/google'],
+['flickr', ''],
+['quora', 'www.quora.com/topic/JavaScript-programming-language'],
+['twitch', 'www.twitch.tv/'],
+['reddit', ''],
+['wiki', 'zh.wikipedia.org/'],
+['gist', 'gist.github.com/'],
+['facebook', 'facebook.com/Google/'],
+['blogger', ''],
+]
+
+function showIcons() {
+list.innerHTML = SITE_LIST.map(v => {
+let [id, url] = v
+url = url || `www.${id}.com/`
+return `\
+<a rel="noopener noreferrer" href=./-----https://${url}>\
+<img width=128 height=128 src=__sys__/assets/ico/${id}.png></a>`
+}).join('')
+}
+
+function addNodeItem(id, text) {
+const optEl = document.createElement('option')
+optEl.id = '--' + id
+optEl.text = text
+optEl.value = id
+selNode.appendChild(optEl)
+}
+
+function updateSelected() {
+const id = conf.node_default
+const item = document.getElementById('--' + id)
+if (item) {
+item.selected = true
+} else {
+console.warn('unknown node:', id)
+}
+}
+
+function showConf() {
+for (const [id, node] of Object.entries(conf.node_map)) {
+if (!node.hidden) {
+addNodeItem(id, node.label)
+}
+}
+updateSelected()
+}
+</script>
+</body>
+</html>
